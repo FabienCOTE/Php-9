@@ -18,7 +18,7 @@ and open the template in the editor.
         <div>
             <?php
             $dateBefore = strtotime('2016-05-16');
-            $difference = ceil((time() - $dateBefore) / 86400);
+            $difference = ceil(($dateBefore - time()) / 86400);
             echo $difference;
             ?>
         </div>

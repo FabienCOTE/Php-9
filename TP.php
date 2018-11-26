@@ -1,4 +1,6 @@
 <?php
+$monthSelected = 1;
+$yearSelected = 1970;
 $activeCalendar = '';
 $count = 0;
 //Date française
@@ -23,27 +25,26 @@ $monthArray = [
 ];
 //Jours
 $dayArray = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday'
+    'Lundi',
+    'Mardi',
+    'Mercredi',
+    'Jeudi',
+    'Vendredi',
+    'Samedi',
+    'Dimanche'
 ];
 //On vérifie que les variables mois et année existent
 if(isset($_POST['month']) && isset($_POST['year'])) {
     $monthSelected = $_POST['month'];
     $yearSelected = $_POST['year'];
-    $nbDaysMonth = cal_days_in_month(CAL_GREGORIAN, $monthSelected, $yearSelected);
-    $firstDay = date('l', mktime(0, 0, 0, $monthSelected, 1, $yearSelected));
-    $dateFrench = (int)strftime('%d', mktime(0, 0, 0, $monthSelected, 1, $yearSelected));
+    $nbDaysMonth = cal_days_in_month(CAL_GREGORIAN, $monthSelected, $yearSelected);//Nombre de jour dans le mois
+    $firstDay = ucfirst(strftime('%A', mktime(0, 0, 0, $monthSelected, 1, $yearSelected)));//Premier jour du mois
     //Function qui permet de mettre la couleur blanc en background et de vérifier le premier jour du mois et activer les jours de la premier ligne
     function dateCalendar($day, $class) {
         global $firstDay;
         global $activeCalendar;
         global $count;
-        global $dateFrench;
+        $dateStart = 1;
         if ($firstDay == $day && $activeCalendar != 'ok') {
             $activeCalendar = 'ok';
         }
@@ -51,7 +52,7 @@ if(isset($_POST['month']) && isset($_POST['year'])) {
             if ($class == 'ok') {
                 return 'bg-light';
             } else {
-                return $dateFrench;
+                return $dateStart;
             }
         }
         if ($firstDay != $day && $activeCalendar == 'ok') {
@@ -63,7 +64,7 @@ if(isset($_POST['month']) && isset($_POST['year'])) {
             }
         }
     }
-    //Function qui rajoute le nombre de jours restant dans le mois
+    //Function qui rajoute dans la deuxième ligne du calendrier le nombre de jours restant dans le mois
     function stopFor($class) {
         global $days;
         global $nbDaysMonth;
@@ -94,13 +95,13 @@ if(isset($_POST['month']) && isset($_POST['year'])) {
                     <label for="month">Mois</label>
                     <select name="month" id="month" required>
                         <?php foreach ($monthArray as $monthNb => $month) { ?>
-                            <option value="<?= $monthNb; ?>"><?= $month; ?></option>
+                            <option value="<?= $monthNb; ?>" <?= $monthNb==$monthSelected ? 'selected' : ''; ?>><?= $month; ?></option>
                         <?php } ?>
                     </select>
                     <label for="year">Année</label>
                     <select name="year" id="year" required>
                         <?php for($yearMin; $yearMin <= $yearMax; $yearMin++) { ?>
-                            <option value="<?= $yearMin; ?>"><?= $yearMin; ?></option>
+                            <option value="<?= $yearMin; ?>" <?= $yearMin==$yearSelected ? 'selected' : ''; ?>><?= $yearMin; ?></option>
                         <?php } ?>
                     </select>
                     <input type="submit" value="Envoyer" />
@@ -118,16 +119,12 @@ if(isset($_POST['month']) && isset($_POST['year'])) {
             ?>
         </div>
         <div>
-            <table class="table">
+            <table class="table table-bordered table-responsive-lg text-center">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Lundi</th>
-                        <th scope="col">Mardi</th>
-                        <th scope="col">Mercredi</th>
-                        <th scope="col">Jeudi</th>
-                        <th scope="col">Vendredi</th>
-                        <th scope="col">Samedi</th>
-                        <th scope="col">Dimanche</th>
+                        <?php foreach($dayArray as $day) { ?>
+                        <th scope="col"><?= $day; ?></th>
+                        <?php } ?>
                     </tr>
                 </thead>
                 <tbody class="bg-secondary">
