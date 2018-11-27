@@ -38,7 +38,7 @@ if(isset($_POST['month']) && isset($_POST['year'])) {
     $monthSelected = $_POST['month'];
     $yearSelected = $_POST['year'];
     $nbDaysMonth = cal_days_in_month(CAL_GREGORIAN, $monthSelected, $yearSelected);//Nombre de jour dans le mois
-    $firstDay = ucfirst(strftime('%A', mktime(0, 0, 0, $monthSelected, 1, $yearSelected)));//Premier jour du mois
+    $firstDay = ucfirst(strftime('%A', mktime(0, 0, 0, $monthSelected, 1, $yearSelected)));//Premier jour du mois avec la première lettre en majuscule
     //Function qui permet de mettre la couleur blanc en background et de vérifier le premier jour du mois et activer les jours de la premier ligne
     function dateCalendar($day, $class) {
         global $firstDay;
