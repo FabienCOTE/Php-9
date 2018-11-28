@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
@@ -16,7 +11,7 @@ and open the template in the editor.
             <p>Afficher la date courante en respectant la forme jj-mm-aa (ex : 16-05-16)</p>
         </div>
         <div>
-            <p><?= date('d-m-Y'); ?></p>
+            <p><?= date('d-m-y'); ?></p>
         </div>
     </body>
 </html>

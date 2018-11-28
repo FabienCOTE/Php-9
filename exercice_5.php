@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
@@ -19,8 +14,8 @@ and open the template in the editor.
             <?php
             $dateBefore = strtotime('2016-05-16');
             $difference = ceil(($dateBefore - time()) / 86400);
-            echo $difference;
             ?>
+            </p><?= $difference; ?> jours</p>
         </div>
     </body>
 </html>
