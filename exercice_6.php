@@ -1,3 +1,6 @@
+<?php
+$days = cal_days_in_month(CAL_GREGORIAN, 2, 2016);
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -11,7 +14,7 @@
             <p>Afficher le nombre de jour dans le mois de février de l'année 2016.</p>
         </div>
         <div>
-            <p><?= cal_days_in_month(CAL_GREGORIAN, 2, 2016); ?> jours</p>
+            <p><?= $days; ?> jours</p>
         </div>
     </body>
 </html>

@@ -1,3 +1,7 @@
+<?php
+$date = date('d-m-Y');
+$dateDays = date('d-m-Y', strtotime('-22 days'));
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -11,7 +15,8 @@
             <p>Afficher la date du jour - 22 jours</p>
         </div>
         <div>
-            <p>Date du jours : <?= date('d-m-Y'); ?><br /> - 22 jours : <?= date('d-m-Y', strtotime(date('d-m-Y') . '-22 days')); ?></p>
+            <p>Date du jours : <?= $date; ?></p>
+            <p>- 22 jours : <?= $dateDays; ?></p>
         </div>
     </body>
 </html>

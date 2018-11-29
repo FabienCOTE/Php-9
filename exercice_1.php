@@ -1,3 +1,6 @@
+<?php
+$date = date('d/m/Y');
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -11,7 +14,7 @@
             <p>Afficher la date courante en respectant la forme jj/mm/aaaa (ex : 16/05/2016)</p>
         </div>
         <div>
-            <p><?= date('d/m/Y'); ?></p>
+            <p><?= $date; ?></p>
         </div>
     </body>
 </html>

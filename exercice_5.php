@@ -1,3 +1,7 @@
+<?php
+$dateBefore = strtotime('2016-05-16');
+$difference = ceil(($dateBefore - time()) / 86400);
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -11,11 +15,7 @@
             <p>Afficher le nombre de jour qui sépare la date du jour avec le 16 mai 2016.</p>
         </div>
         <div>
-            <?php
-            $dateBefore = strtotime('2016-05-16');
-            $difference = ceil(($dateBefore - time()) / 86400);
-            ?>
             </p><?= $difference; ?> jours</p>
         </div>
-    </body>
+</body>
 </html>

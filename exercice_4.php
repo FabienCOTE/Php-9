@@ -1,3 +1,7 @@
+<?php
+$time = time();
+$mktime = mktime(15, 0, 0, 8, 2, 2016);
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -11,8 +15,8 @@
             <p>Afficher le timestamp du jour.<br />Afficher le timestamp du mardi 2 août 2016 à 15h00.</p>
         </div>
         <div>
-            <p><?= time(); ?></p>
-            <p><?= mktime(15, 0, 0, 8, 2, 2016); ?></p>
+            <p><?= $time; ?></p>
+            <p><?= $mktime; ?></p>
         </div>
     </body>
 </html>

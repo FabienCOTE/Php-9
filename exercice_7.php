@@ -1,3 +1,7 @@
+<?php
+$date = date('d-m-Y');
+$dateDays = date('d-m-Y', strtotime('20 days'));
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -11,8 +15,8 @@
             <p>Afficher la date du jour + 20 jours.</p>
         </div>
         <div>
-            <p>Date du jours : <?= date('d-m-Y'); ?></p>
-            <p>+ 20 jours : <?= date('d-m-Y', strtotime(date('d-m-Y') . '+20 days')); ?></p>
+            <p>Date du jours : <?= $date; ?></p>
+            <p>+ 20 jours : <?= $dateDays; ?></p>
         </div>
     </body>
 </html>
